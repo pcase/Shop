@@ -18,10 +18,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.apps.azurehorsecreations.shop.ui.PostDetailPagerActivity"
-            android:parentActivityName="com.apps.azurehorsecreations.shop.ui.MainActivity">
-        </activity>
-        <activity
             android:name="com.apps.azurehorsecreations.shop.ui.PhotoDetailPagerActivity"
             android:parentActivityName="com.apps.azurehorsecreations.shop.ui.MainActivity">
         </activity>

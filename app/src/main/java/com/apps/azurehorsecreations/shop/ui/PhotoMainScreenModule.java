@@ -10,17 +10,17 @@ import dagger.Provides;
  */
 
 @Module
-public class PostMainScreenModule {
-    private final PostMainScreenContract.View mView;
+public class PhotoMainScreenModule {
+    private final PhotoMainScreenContract.View mView;
 
 
-    public PostMainScreenModule(PostMainScreenContract.View mView) {
+    public PhotoMainScreenModule(PhotoMainScreenContract.View mView) {
         this.mView = mView;
     }
 
     @Provides
     @CustomScope
-    PostMainScreenContract.View providesPostMainScreenContractView() {
+    PhotoMainScreenContract.View providesPhotoMainScreenContractView() {
         return mView;
     }
 }

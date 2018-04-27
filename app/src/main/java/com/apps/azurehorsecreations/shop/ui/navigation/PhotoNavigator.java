@@ -2,27 +2,26 @@ package com.apps.azurehorsecreations.shop.ui.navigation;
 
 import android.content.Context;
 import android.content.Intent;
-
-import com.apps.azurehorsecreations.shop.data.Post;
+import com.apps.azurehorsecreations.shop.data.Photo;
 
 /**
  * Created by pattycase on 4/25/18.
  */
 
-public class PostNavigator {
+public class PhotoNavigator {
     private final Context mActivityContext;
     private final Class<?> mClassToNavigateTo;
-    private Post mPost;
+    private Photo mPhoto;
 
-    public PostNavigator(Context activityContext, Class<?> cls, Post post) {
+    public PhotoNavigator(Context activityContext, Class<?> cls, Photo photo) {
         this.mActivityContext = activityContext;
         this.mClassToNavigateTo = cls;
-        this.mPost = post;
+        this.mPhoto = photo;
     }
 
     public void launchActivity() {
         Intent intent = new Intent(mActivityContext, mClassToNavigateTo);
-        intent.putExtra("POST", mPost);
+        intent.putExtra("PHOTO", mPhoto);
         mActivityContext.startActivity(intent);
     }
 }

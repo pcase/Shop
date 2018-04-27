@@ -6,8 +6,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import com.apps.azurehorsecreations.shop.data.Post;
+
 import com.apps.azurehorsecreations.shop.R;
+import com.apps.azurehorsecreations.shop.data.Photo;
 import com.apps.azurehorsecreations.shop.ui.adapters.DetailPagerAdapter;
 
 import java.util.ArrayList;
@@ -17,10 +18,10 @@ import java.util.List;
  * PostDetailPagerActivity displays the product details in a swipeable viewer
  */
 
-public class PostDetailPagerActivity extends AppCompatActivity {
-    private static final String POST = "POST";
-    private Post product;
-    private Post[] postArray;
+public class PhotoDetailPagerActivity extends AppCompatActivity {
+    private static final String PRODUCT = "PRODUCT";
+    private Photo phpto;
+    private Photo[] photoArray;
     FragmentPagerAdapter adapterViewPager;
     List<Fragment> fragments;
     ViewPager vpPager;
@@ -29,13 +30,12 @@ public class PostDetailPagerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_pager);
-//        ButterKnife.bind(this);
         vpPager = findViewById(R.id.vpPager);
-        Parcelable parcelableProduct = getIntent().getParcelableExtra(POST);
-        postArray = new Post[1];
-        postArray[0] = (Post)parcelableProduct;
+        Parcelable parcelableProduct = getIntent().getParcelableExtra("PHOTO");
+        photoArray = new Photo[1];
+        photoArray[0] = (Photo)parcelableProduct;
         fragments = new ArrayList<>();
-        fragments.add(PostDetailFragment.newInstance(postArray[0]));
+        fragments.add(PhotoDetailFragment.newInstance(photoArray[0]));
         adapterViewPager = new DetailPagerAdapter(getSupportFragmentManager(), fragments);
         vpPager.setAdapter(adapterViewPager);
 

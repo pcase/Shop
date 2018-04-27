@@ -2,6 +2,7 @@ package com.apps.azurehorsecreations.shop.ui;
 
 import com.apps.azurehorsecreations.shop.di.component.NetComponent;
 import com.apps.azurehorsecreations.shop.di.scope.CustomScope;
+
 import dagger.Component;
 
 /**
@@ -9,7 +10,7 @@ import dagger.Component;
  */
 
 @CustomScope
-@Component(dependencies = NetComponent.class, modules = PostMainScreenModule.class)
-public interface PostMainScreenComponent {
+@Component(dependencies = NetComponent.class, modules = PhotoMainScreenModule.class)
+public interface PhotoMainScreenComponent {
     void inject(MainActivity activity);
 }
