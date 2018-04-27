@@ -11,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.apps.azurehorsecreations.shop.R;
 import com.apps.azurehorsecreations.shop.data.Photo;
+import com.bumptech.glide.Glide;
 
 /*
  * PostDetailFragment is a fragment for the product detail page
@@ -26,6 +27,7 @@ import com.apps.azurehorsecreations.shop.data.Photo;
 public class PhotoDetailFragment extends Fragment {
     private static final String TAG = "PhotoDetFrag";
     private Photo photo;
+    ImageView thumbnail;
     TextView albumId;
     TextView id;
     TextView title;
@@ -60,6 +62,7 @@ public class PhotoDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.content_photo_detail, container, false);
+        thumbnail = view.findViewById(R.id.photo_image);
         albumId = view.findViewById(R.id.album_Id);
         id = view.findViewById(R.id.id);
         title = view.findViewById(R.id.title);
@@ -84,22 +87,9 @@ public class PhotoDetailFragment extends Fragment {
 
         if (photo.getThumbnailUrl() != null) {
             thumbnailUrl.setText(Html.fromHtml(photo.getThumbnailUrl()));
+            Glide.with(this).load(photo.getThumbnailUrl()).into(thumbnail);
         }
 
-//        loadImage(productImage, product.getProductImage());
         return view;
-    }
-
-    private void loadImage(final ImageView bmImage, String url) {
-//        Handler handler = new Handler() {
-//            @Override
-//            public void handleMessage(Message msg) {
-//                Bitmap bitmap = (Bitmap) msg.obj;
-//                bmImage.setImageBitmap(bitmap);
-//            }
-//        };
-//
-//        ImageDownloader imageDownloader = new ImageDownloader();
-//        imageDownloader.loadImage(url, handler);
     }
 }

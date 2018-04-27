@@ -6,9 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.apps.azurehorsecreations.shop.R;
 import com.apps.azurehorsecreations.shop.data.Photo;
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 
@@ -45,6 +48,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> 
         String name = mPhotoList.get(position).getTitle();
         holder.photoTextView.setText(name);
         holder.click(mPhotoList.get(position), listener);
+        Glide.with(mContext).load(mPhotoList.get(position).getUrl()).into(holder.photoImageView);
     }
 
     @Override
@@ -54,10 +58,12 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         protected TextView photoTextView;
+        protected ImageView photoImageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             photoTextView = itemView.findViewById(R.id.photo_text);
+            photoImageView = itemView.findViewById(R.id.photo_image);
         }
 
         public void click(final Photo photo, final OnItemClickListener listener) {
