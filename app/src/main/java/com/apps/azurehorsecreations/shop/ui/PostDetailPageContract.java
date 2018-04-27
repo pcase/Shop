@@ -1,16 +1,16 @@
-package com.apps.azurehorsecreations.shop.mainscreen;
+package com.apps.azurehorsecreations.shop.ui;
 
 import com.apps.azurehorsecreations.shop.data.Post;
 
 import java.util.List;
 
 /**
- * Created by pattycase on 4/24/18.
+ * Created by pattycase on 4/25/18.
  */
 
-public interface MainScreenContract {
+public interface PostDetailPageContract {
     interface View {
-        void showPosts(List<Post> posts);
+        void showPostDetail(Post posts);
 
         void showError(String message);
 

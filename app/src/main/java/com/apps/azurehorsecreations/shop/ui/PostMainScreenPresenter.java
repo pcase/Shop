@@ -1,6 +1,8 @@
-package com.apps.azurehorsecreations.shop.mainscreen;
+package com.apps.azurehorsecreations.shop.ui;
 
 import com.apps.azurehorsecreations.shop.data.Post;
+import com.apps.azurehorsecreations.shop.ui.navigation.PostNavigator;
+
 import java.util.List;
 import javax.inject.Inject;
 
@@ -17,19 +19,20 @@ import io.reactivex.schedulers.Schedulers;
  * Created by pattycase on 4/24/18.
  */
 
-public class MainScreenPresenter implements MainScreenContract.Presenter {
+public class PostMainScreenPresenter implements PostMainScreenContract.Presenter {
 
     Retrofit retrofit;
-    MainScreenContract.View mView;
+    PostMainScreenContract.View mView;
+    PostNavigator mNavigator;
 
     @Inject
-    public MainScreenPresenter(Retrofit retrofit, MainScreenContract.View mView) {
+    public PostMainScreenPresenter(Retrofit retrofit, PostMainScreenContract.View mView) {
         this.retrofit = retrofit;
         this.mView = mView;
     }
 
     @Override
-    public void loadPost() {
+    public void loadPosts() {
         retrofit.create(PostService.class).getPostList().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .unsubscribeOn(Schedulers.io())
@@ -52,6 +55,14 @@ public class MainScreenPresenter implements MainScreenContract.Presenter {
                         mView.showPosts(posts);
                     }
                 });
+    }
+
+    public void setNavigator(PostNavigator navigator) {
+        this.mNavigator = navigator;
+    }
+
+    public void navigateToNewScreen() {
+        this.mNavigator.launchActivity();
     }
 
     public interface PostService {

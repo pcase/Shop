@@ -1,4 +1,4 @@
-package com.apps.azurehorsecreations.shop.data.module;
+package com.apps.azurehorsecreations.shop.di.module;
 
 import android.app.Application;
 import android.content.SharedPreferences;

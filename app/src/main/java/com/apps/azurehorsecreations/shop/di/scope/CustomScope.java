@@ -1,4 +1,4 @@
-package com.apps.azurehorsecreations.shop.util;
+package com.apps.azurehorsecreations.shop.di.scope;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

@@ -1,7 +1,7 @@
-package com.apps.azurehorsecreations.shop.data.component;
+package com.apps.azurehorsecreations.shop.di.component;
 
-import com.apps.azurehorsecreations.shop.data.module.AppModule;
-import com.apps.azurehorsecreations.shop.data.module.NetModule;
+import com.apps.azurehorsecreations.shop.di.module.AppModule;
+import com.apps.azurehorsecreations.shop.di.module.NetModule;
 
 import javax.inject.Singleton;
 
